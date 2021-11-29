@@ -1,5 +1,7 @@
-import { NavLink } from 'react-router-dom'
 import React from "react";
+import SignUpButton from "./SignupButton";
+import LoginButton from "./LoginButton";
+import { NavLink } from 'react-router-dom'
 
 const link = {
     width: '100px',
@@ -10,25 +12,20 @@ const link = {
     background: "black"
 }
 
-const Navigation = ({ user, setUser }) => {
-    function handleLogoutClick() {
-        fetch("/logout", { method: "DELETE" }).then((r) => {
-          if (r.ok) {
-            setUser(null);
-          }
-        });
-      }
-    return (
-        
+const Navigation = (props) => {
+
+
+    if (props.loggedIn) {
+       return ( 
         <div>
             <NavLink 
-                to='/home'
+                to='/'
                 exact
                 style={link}
                 activeStyle={{
                     background: 'darkblue'
                 }}
-                >Home</NavLink>
+                ><button>Home</button></NavLink>
             <NavLink
                 to="/community"
                 exact
@@ -36,24 +33,33 @@ const Navigation = ({ user, setUser }) => {
                 activeStyle={{
                     background: 'darkblue'
                 }}
-                >Community Board</NavLink>
+                ><button>Community Board</button></NavLink>
             <NavLink
-                to={'/profile/'+ user.id}
+                to={'/profile/'+ props.user.id}
                 exact
                 style={link}
                 activeStyle={{
                     background: 'darkblue'
                 }}
-                >Profile</NavLink>
-            <button
-                onClick={handleLogoutClick}
+                ><button>Profile</button></NavLink>
+                            <NavLink
+                to={'/profile/'+ props.user.id}
+                exact
                 style={link}
                 activeStyle={{
                     background: 'darkblue'
                 }}
-                >Logout</button>
+                ><button onClick={props.logoutUser} >Logout</button></NavLink>
         </div>
     )
+    } else {
+        return (
+            <div>
+                <LoginButton/> 
+                <SignUpButton/>
+            </div>
+        )
+    }
 }
 
 export default Navigation

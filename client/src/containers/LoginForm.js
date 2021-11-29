@@ -1,9 +1,10 @@
 // import { withRouter } from 'react-router-dom'
 import React, { useState} from 'react'
 
-const LoginForm = ({ onLogin }) => {
+const LoginForm = ({ loginUser }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [errors, setErrors] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -13,16 +14,21 @@ const LoginForm = ({ onLogin }) => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, password }),
-          }).then((r) => {
-            // if (r.ok) {
-              r.json().then((user) => onLogin(user));
-            // } else {
-            //   r.json().then((err) => setErrors(err.errors));
+            body: JSON.stringify({ 
+              username,
+              password 
+              }),
+          })
+          .then((r) => {
+            if (r.ok) {
+              
+              r.json().then((user) => loginUser(user));
+            } else {
+              r.json().then((err) => setErrors(err));
             }
-          )
-    } 
-          
+          })
+     
+  }   
 
    
         return(
@@ -35,6 +41,9 @@ const LoginForm = ({ onLogin }) => {
                     <input type="text" name="password" onChange={(e) => setPassword(e.target.value)}/><br/>
                     <input className='submit' type="submit"/> 
                 </form>
+                <h3>
+                  {errors ? errors.errors : null}
+                </h3>
             </div>
         )
     

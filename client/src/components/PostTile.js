@@ -1,7 +1,5 @@
-// import { useState, useEffect } from 'react'
 
-
-const PostTile = ( {post} ) => {
+const PostTile = ({ post }) => {
     return (
         <div>
             <h1>{post.title}</h1>
