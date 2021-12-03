@@ -8,6 +8,7 @@ import Home from './containers/Home'
 import UserProfile from './containers/UserProfile'
 import LoginForm from './containers/LoginForm'
 import SignupForm from './containers/SignupForm'
+import PostProfile from './containers/PostProfile';
 
 const App = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -18,8 +19,9 @@ const App = (props) => {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setUser(user)
           setLoggedIn(true)
+          setUser(user)
+        
         });
       }
     });
@@ -49,8 +51,9 @@ const App = (props) => {
         <Route index path='/' element={<Home/>}/>
         <Route index path='/community' element={<CommunityBoard/>}/>
         <Route index path='/profile/:id' element={<UserProfile user={user}/>}/>
-        <Route index path='/login' element={<LoginForm loginUser={loginUser} />}/>
-        <Route index path='/signup' element={<SignupForm loginUser={loginUser}/>}/>
+        <Route index path='/posts/:id' element={<PostProfile/>}/>
+        <Route index path='/login' element={<LoginForm loginUser={loginUser} user={user}/>}/>
+        <Route index path='/signup' element={<SignupForm loginUser={loginUser} user={user}/>}/>
       </Routes>
     </div>
   );

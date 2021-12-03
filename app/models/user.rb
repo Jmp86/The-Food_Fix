@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :reviews, through: :posts
     has_secure_password
 
-    validates :username, :password, presence: true
+    validates :username, :firstname, :lastname, presence: true
     validates :username, uniqueness: true
-    validates :password, presence: true
+    
 end

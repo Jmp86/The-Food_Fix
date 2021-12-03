@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router"
 
 const PostTile = ({ post }) => {
+
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        navigate("/posts/" + post.id);
+    }
+
     return (
-        <div>
+        <div onClick={handleClick} className="postTile">
             <h1>{post.title}</h1>
             <img className="image" src={post.image} alt={post.name}/>
             <h2>{post.cuisine}</h2>

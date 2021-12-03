@@ -1,5 +1,4 @@
-// import { withRouter } from 'react-router-dom'
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 
 const LoginForm = ({ loginUser }) => {
     const [username, setUsername] = useState('')
@@ -9,7 +8,7 @@ const LoginForm = ({ loginUser }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        fetch("http://localhost:3000/login", {
+        fetch("/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -21,16 +20,12 @@ const LoginForm = ({ loginUser }) => {
           })
           .then((r) => {
             if (r.ok) {
-              
               r.json().then((user) => loginUser(user));
             } else {
               r.json().then((err) => setErrors(err));
             }
           })
-     
   }   
-
-   
         return(
             <div className='login'>
                 <form className='tile' onSubmit={handleSubmit}>
@@ -38,7 +33,7 @@ const LoginForm = ({ loginUser }) => {
                     <label>Username:</label><br/>
                     <input type="text" name="username" onChange={(e) => setUsername(e.target.value)}/><br/>
                     <label>Password:</label><br/>
-                    <input type="text" name="password" onChange={(e) => setPassword(e.target.value)}/><br/>
+                    <input type="password" name="password" onChange={(e) => setPassword(e.target.value)}/><br/>
                     <input className='submit' type="submit"/> 
                 </form>
                 <h3>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts, only: [:index]
+  resources :posts
   get "/users", to: "users#index"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

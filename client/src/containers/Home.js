@@ -1,4 +1,4 @@
-const Home = ({onLogin} ) => {
+const Home = () => {
     return (
         <div>
             <h1>The Food Fix</h1>

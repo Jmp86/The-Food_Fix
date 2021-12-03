@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from 'react-router-dom'
+
 
 const SignupForm = ({ loginUser }) => {
   const [username, setUsername] = useState("");
@@ -9,7 +9,7 @@ const SignupForm = ({ loginUser }) => {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [bio, setBio] = useState("");
   const [errorsList, setErrorsList] = useState([])
-  const {  } = useParams()
+  
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,7 +23,7 @@ const SignupForm = ({ loginUser }) => {
         firstname,
         lastname,
         password,
-        passwordConfirmation,
+        password_confirmation: passwordConfirmation,
         bio,
       }),
     })
@@ -54,10 +54,10 @@ const SignupForm = ({ loginUser }) => {
                 <input type="text" name="lastname" value={lastname} onChange={(e) => setLastname(e.target.value)}/>
                 <br/>
                 <label>Password:</label><br/>
-                <input type="text" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <br/>
                 <label>Password Confirmation:</label><br/>
-                <input type="text" name="passwordConfirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/><br/>
+                <input type="password" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/><br/>
                 <label>Tell us a little about yourself:</label><br/>
                 <input type="textarea" name="bio" value={bio} onChange={(e) => setBio(e.target.value)}/><br/>
                 <input className="submit" type="submit"/>
