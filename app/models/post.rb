@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
     belongs_to :user
+    has_many :reviews
 
-    validates :title, :cuisine, :description, presence: true
+    validates :title, :category, :description, presence: true
 end

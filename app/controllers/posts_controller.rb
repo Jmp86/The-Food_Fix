@@ -21,8 +21,12 @@ class PostsController < ApplicationController
 
     def update
         post = Post.find_by(id: params[:id])
-        post.update(post_params)
-        render json: post, status: :created
+        if(@current_user.id == post.user_id)
+            post.update!(post_params)
+            render json: post, status: :created
+        else
+            render json: {errors: ["Not authorized"]}, status: :unauthorized
+        end
     end
 
     def destroy
@@ -38,7 +42,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.permit(:title, :image, :cuisine, :description)
+        params.permit(:title, :image, :category, :description)
     end
 
     def render_unprocessable_entity_response(invalid)

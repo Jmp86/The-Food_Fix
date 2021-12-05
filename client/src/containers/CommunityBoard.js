@@ -5,8 +5,8 @@ const CommunityBoard = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/posts`)
-        .then( r => r.json())
+        fetch(`/posts`)
+        .then(r => r.json())
         .then(setPosts)
     }, [])
    

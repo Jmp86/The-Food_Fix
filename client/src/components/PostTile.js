@@ -12,7 +12,7 @@ const PostTile = ({ post }) => {
         <div onClick={handleClick} className="postTile">
             <h1>{post.title}</h1>
             <img className="image" src={post.image} alt={post.name}/>
-            <h2>{post.cuisine}</h2>
+            <h2>{post.category}</h2>
             <h3>{post.description}</h3>
             <p>{post.ingredients}</p>
             <p>{post.instructions}</p>

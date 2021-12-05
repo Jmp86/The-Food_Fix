@@ -15,24 +15,21 @@ User.create(username: 'RachelT91', firstname: 'Rachel', lastname: 'Tierney', pas
 
 Post.create(title: 'Taco Bell', 
     image: 'https://www.tacobell.com/medias/blog-2019-new-menu-header.jpg?context=bWFzdGVyfGltYWdlc3wxNjYyNzd8aW1hZ2UvanBlZ3xpbWFnZXMvaDFhL2g5OC84OTI4NTEyMTE0NzE4LmpwZ3xjMjA5YzZjNTQyMmM0MWM1ZWE5N2Q1OGQ0NDJjYWVkMzdiNTE0MjMyMjRhMzhmMTZjNGEwYTc4YmMwOGYwOWYx',
-    cuisine: 'Mexican',
-    is_restaurant: true,
+    category: 'Mexican',
     description: "Fast Food",
     average_rating: 2,
     user_id: User.all.sample.id)
 
 Post.create(title: 'Pizza Hut', 
     image: 'https://dynl.mktgcdn.com/p/QvyqaFRBImZYtfiRK0H4MWood5vuKFeCfBTXpmHRS5k/586x450.jpg',
-    cuisine: 'Pizza',
-    is_restaurant: true,
+    category: 'Pizza',
     description: "Pizza, breadsticks, wings, pasta",
     average_rating: 3,
     user_id: User.all.sample.id)
 
 Post.create(title: 'Cacio e Pepe Macaroni and Cheese', 
     image: 'https://static.parade.com/wp-content/uploads/2020/01/Cacio-e-Pepe-Mac_photo-by-Audrey-Ma.jpg',
-    cuisine: 'Pasta',
-    is_restaurant: false,
+    category: 'Pasta',
     description: "Peppery, cheesy cacio e pepe is one of the trendiest pastas around these days.",
     ingredients: "INGREDIENTS
     2 Tbsp salt

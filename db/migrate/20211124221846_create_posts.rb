@@ -3,8 +3,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
     create_table :posts do |t|
       t.string :title
       t.string :image
-      t.string :cuisine
-      t.boolean :is_restaurant
+      t.string :category
       t.string :description
       t.string :ingredients
       t.string :instructions
