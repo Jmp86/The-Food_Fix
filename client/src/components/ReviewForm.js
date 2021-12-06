@@ -34,9 +34,9 @@ const ReviewForm = ( {setShowReviewForm, setPost, post, setUser} ) => {
   }
 
   return (
-          <div className="post-form">
+          <div className="reviewForm">
             <form className="tile" onSubmit={handleSubmit}>
-                <h1>Add A Review</h1>
+                <h2>Add A Review</h2>
                 <label>Review:</label><br/>
                 <input type="textarea" name="review" value={review} onChange={(e) => setReview(e.target.value)}/>
                 <br/>

@@ -15,7 +15,7 @@ const Navigation = (props) => {
 
     if (props.loggedIn) {
        return ( 
-        <div>
+        <div className="navbar">
             <NavLink 
                 to='/'
                 exact
@@ -54,7 +54,7 @@ const Navigation = (props) => {
     )
     } else {
         return (
-            <div>
+            <div className="navbar">
                 <NavLink 
                     to='/'
                     exact

@@ -26,8 +26,9 @@ const LoginForm = ({ loginUser }) => {
             }
           })
   }   
+ 
         return(
-            <div className='login'>
+            <div className='login' style={{ backgroundImage: `url(https://www.goatsontheroad.com/wp-content/uploads/2020/02/10-Countries-With-The-Best-Food-To-Travel-To-in-2020-1100x593.jpg)`}}>
                 <form className='tile' onSubmit={handleSubmit}>
                     <h1>Log In</h1>
                     <label>Username:</label><br/>

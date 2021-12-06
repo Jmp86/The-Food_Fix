@@ -17,13 +17,11 @@ const PostTile = ({ post }) => {
 
     return (
         <div onClick={handleClick} className="postTile">
-            <h1>{post.title}</h1>
-            <img className="image" src={post.image} alt={post.name}/>
-            <h2>{post.category}</h2>
+            <h2>{post.title}</h2>
+            <img className="tileImage" src={post.image} alt={post.name}/>
+            <h3>{post.category}</h3>
             <h3>{post.description}</h3>
-            <p>{post.ingredients}</p>
-            <p>{post.instructions}</p>
-            <h3>{averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="star">&#9733;</span>) : null}</h3>
+            <h2>{averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="star">&#9733;</span>) : null}</h2>
         </div>
     )
 }

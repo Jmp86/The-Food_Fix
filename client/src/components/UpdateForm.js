@@ -38,9 +38,9 @@ const UpdateForm = ( {setShowUpdateForm, setPost, post} ) => {
   }
 
   return (
-          <div className="update-form">
+          <div className="updateForm">
             <form className="tile" onSubmit={handleSubmit}>
-                <h1>Edit Post</h1>
+                <h2>Edit Post</h2>
                 <label>Title:</label><br/>
                 <input type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
                 <br/>

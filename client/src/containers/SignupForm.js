@@ -39,9 +39,8 @@ const SignupForm = ({ loginUser }) => {
       }
     })
   }
-
   return (
-          <div className="signup">
+          <div className="signup" style={{ backgroundImage: `url(https://i.ytimg.com/vi/vbajzMts9zE/maxresdefault.jpg)`}}>
             <form className="tile" onSubmit={handleSubmit}>
                 <h1>Create A New Account</h1>
                 <label>Username:</label><br/>
@@ -59,7 +58,7 @@ const SignupForm = ({ loginUser }) => {
                 <label>Password Confirmation:</label><br/>
                 <input type="password" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/><br/>
                 <label>Tell us a little about yourself:</label><br/>
-                <input type="textarea" name="bio" value={bio} onChange={(e) => setBio(e.target.value)}/><br/>
+                <textarea type="tex" rows="5" name="bio" value={bio} onChange={(e) => setBio(e.target.value)}/><br/>
                 <input className="submit" type="submit"/>
             </form>
             <ul>
