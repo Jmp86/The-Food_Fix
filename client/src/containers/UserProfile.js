@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import PostForm from '../components/PostForm'
 import PostTile from '../components/PostTile'
-import { useParams } from 'react-router-dom'
 
 const UserProfile = ({user}) => {
     const [showPostForm, setShowPostForm] = useState(false)
     const [posts, setPosts] = useState([])
-    const { id } = useParams()
 
     useEffect(() => {
         fetch('/me')

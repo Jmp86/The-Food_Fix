@@ -11,15 +11,10 @@ class ReviewsController < ApplicationController
         render json: review, status: :created
     end
 
-    def show
-        review = Review.find(params[:id])
-        render json: review
-    end
-
     def destroy
         review = Review.find(params[:id])
-        if (@current_user.id == post.user_id)
-            post.destroy
+        if (@current_user.id == review.user_id)
+            review.destroy
             head :no_content
         else
             render json: {errors: ["Not authorized"]}, status: :unauthorized

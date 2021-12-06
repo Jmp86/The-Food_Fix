@@ -40,6 +40,21 @@ const PostProfile = () => {
           })
           navigate('/')
     }
+
+    const deleteReview = (id) => {
+        fetch("/reviews/" + id, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+          .then(r => r.json())
+          .then(
+              fetch('/posts/' + post.id)
+                .then(r => r.json())
+                .then(post => setPost(post))
+          )}
+    
     
 
     return (
@@ -50,11 +65,11 @@ const PostProfile = () => {
             <h3>Description: {post.description}</h3>
             <p>{post.ingredients}</p>
             <p>{post.instructions}</p>
-            <h3>Average Rating: {[...Array(parseInt(averageRating))].map(star => <span className="star">&#9733;</span>)}</h3>
-            {showReviewForm ? <ReviewForm setShowReviewForm={setShowReviewForm} post={post}/> : <button className="postButton" onClick={(e) => setShowReviewForm(true)}>Add A Review</button>}
+            <h3>Average Rating: {averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="star">&#9733;</span>) : null}</h3>
+            {showReviewForm ? <ReviewForm setShowReviewForm={setShowReviewForm} setPost={setPost} post={post}/> : <button className="postButton" onClick={(e) => setShowReviewForm(true)}>Add A Review</button>}
             {showUpdateForm ? <UpdateForm setShowUpdateForm={setShowUpdateForm} post={post} setPost={setPost}/> : <button className="postButton" onClick={(e) => setShowUpdateForm(true)}>Edit Post</button>}
             <button onClick={handleDelete} className="postButton">Delete Post</button>
-            {post.reviews ? post.reviews.map(review => <ReviewTile review={review}/>) : null}
+            {post.reviews ? post.reviews.map(review => <ReviewTile review={review} deleteReview={deleteReview}/>) : null}
         </div>
     )
 }

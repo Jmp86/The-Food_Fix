@@ -14,17 +14,31 @@ User.create(username: 'Jmp86', firstname: 'Justin', lastname: 'Pitts', password:
 User.create(username: 'RachelT91', firstname: 'Rachel', lastname: 'Tierney', password: 'dogos', bio: 'I love new baking recipes')
 
 
-Post.create(title: 'Taco Bell', 
-    image: 'https://www.tacobell.com/medias/blog-2019-new-menu-header.jpg?context=bWFzdGVyfGltYWdlc3wxNjYyNzd8aW1hZ2UvanBlZ3xpbWFnZXMvaDFhL2g5OC84OTI4NTEyMTE0NzE4LmpwZ3xjMjA5YzZjNTQyMmM0MWM1ZWE5N2Q1OGQ0NDJjYWVkMzdiNTE0MjMyMjRhMzhmMTZjNGEwYTc4YmMwOGYwOWYx',
-    category: 'Mexican',
-    description: "Fast Food",
-    average_rating: 2,
+Post.create(title: 'Starbucks', 
+    image: 'https://m.oxfordeagle.com/wp-content/uploads/sites/38/2020/06/Starbucks-Logo.png',
+    category: 'Coffee',
+    description: "Convenient coffee spot",
+    average_rating: 3,
     user_id: User.all.sample.id)
 
-Post.create(title: 'Pizza Hut', 
-    image: 'https://dynl.mktgcdn.com/p/QvyqaFRBImZYtfiRK0H4MWood5vuKFeCfBTXpmHRS5k/586x450.jpg',
-    category: 'Pizza',
-    description: "Pizza, breadsticks, wings, pasta",
+Post.create(title: '808 Deli', 
+    image: 'https://images.jdmagicbox.com/us/comp/hi/kihei/35/8co0045535/catalogue/808-deli-hi-kihei-jrwaqgumoa.jpg',
+    category: 'Deli',
+    description: "Great salads and sandwiches",
+    average_rating: 4,
+    user_id: User.all.sample.id)
+
+Post.create(title: 'Panera', 
+    image: 'http://i.imgur.com/4H1Fei6.jpg',
+    category: 'Bakery, soups, salads, sandwiches',
+    description: "Best soup and sandwich combinations",
+    average_rating: 5,
+    user_id: User.all.sample.id)
+
+Post.create(title: 'Diamonds Ice Bar & Grill', 
+    image: 'https://mauihappyhours.net/wp-content/uploads/2020/11/diamonds-ice-bar-kihei-maui-hawaii-maui-happy-hours-1024x683.jpg',
+    category: 'Bar',
+    description: "Reasonably priced drinks",
     average_rating: 3,
     user_id: User.all.sample.id)
 
@@ -53,11 +67,41 @@ Post.create(title: 'Cacio e Pepe Macaroni and Cheese',
     average_rating: 5,
     user_id: User.all.sample.id )
 
+Post.create(title: 'Master Scones Recipe', 
+        image: 'https://cdn.sallysbakingaddiction.com/wp-content/uploads/2019/04/scone-varieties.jpg',
+        category: 'Baking',
+        description: "These better-than-the-bakery treats are flaky, flavorful, and moist with crisp crumbly edges",
+        ingredients: "
+        2 cups (250g) all-purpose flour (spoon & leveled), plus more for hands and work surface
+        1/2 cup (100g) granulated sugar
+        1/2 teaspoon salt
+        2 and 1/2 teaspoons baking powder
+        1/2 cup (1 stick; 115g) unsalted butter, frozen
+        1/2 cup (120ml) heavy cream or buttermilk (plus 2 Tbsp for brushing)
+        1 large egg
+        1 and 1/2 teaspoons pure vanilla extract
+        1–1.5 cups add-ins such as chocolate chips, berries, nuts, fruit, etc",
+        instructions: "Whisk flour, sugar, salt, and baking powder together in a large bowl. Grate the frozen butter using a box grater. Add it to the flour mixture and combine with a pastry cutter, two forks, or your fingers until the mixture comes together in pea-sized crumbs. See video above for a closer look at the texture. Place in the refrigerator or freezer as you mix the wet ingredients together.
+        Whisk 1/2 cup heavy cream, the egg, and vanilla extract together in a small bowl. Drizzle over the flour mixture, add the add-ins, then mix together until everything appears moistened.
+        To make triangle scones: Pour onto the counter and, with floured hands, work dough into a ball as best you can. Dough will be sticky. If it’s too sticky, add a little more flour. If it seems too dry, add 1-2 more Tablespoons heavy cream. Press into an 8-inch disc and, with a sharp knife or bench scraper, cut into 8 wedges. For smaller scones, press dough into two 5-inch discs and cut each into 8 wedges. To make 10-12 drop scones: Keep mixing dough in the bowl until it comes together. Drop scones, about 1/4 cup of dough each, 3 inches apart on a lined baking sheet.
+        Brush scones with remaining heavy cream and for extra crunch, sprinkle with coarse sugar. (You can do this before or after refrigerating in the next step.)
+        Place scones on a plate or lined baking sheet (if your fridge has space!) and refrigerate for at least 15 minutes.
+        Meanwhile, preheat oven to 400°F (204°C).
+        Line a large baking sheet with parchment paper or silicone baking mat(s). If making mini or drop scones, use 2 baking sheets. After refrigerating, arrange scones 2-3 inches apart on the prepared baking sheet(s).
+        Bake for 18-26 minutes or until golden brown around the edges and lightly browned on top. Larger scones take closer to 25 minutes. Remove from the oven and cool for a few minutes before topping with optional toppings listed in the ingredients.
+        Leftover scones keep well at room temperature for 2 days or in the refrigerator for 5 days.",
+        average_rating: 4,
+        user_id: User.all.sample.id )
+
 Review.create(review: "So Good", rating: 5, user_id: User.all.sample.id, post_id: Post.all.sample.id)
 Review.create(review: "Terrible", rating: 1, user_id: User.all.sample.id, post_id: Post.all.sample.id)
 Review.create(review: "It was ok", rating: 2, user_id: User.all.sample.id, post_id: Post.all.sample.id)
 Review.create(review: "Pretty Good", rating: 4, user_id: User.all.sample.id, post_id: Post.all.sample.id)
 Review.create(review: "Amazing", rating: 5, user_id: User.all.sample.id, post_id: Post.all.sample.id)
-
+Review.create(review: "Not bad", rating: 3, user_id: User.all.sample.id, post_id: Post.all.sample.id)
+Review.create(review: "Delicious", rating: 5, user_id: User.all.sample.id, post_id: Post.all.sample.id)
+Review.create(review: "Dissapointing", rating: 1, user_id: User.all.sample.id, post_id: Post.all.sample.id)
+Review.create(review: "The best", rating: 5, user_id: User.all.sample.id, post_id: Post.all.sample.id)
+Review.create(review: "Not good", rating: 2, user_id: User.all.sample.id, post_id: Post.all.sample.id)
 
 puts "seeded"

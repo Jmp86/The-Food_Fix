@@ -23,7 +23,7 @@ const PostTile = ({ post }) => {
             <h3>{post.description}</h3>
             <p>{post.ingredients}</p>
             <p>{post.instructions}</p>
-            <h3>{[...Array(parseInt(averageRating))].map(star => <span className="star">&#9733;</span>)}</h3>
+            <h3>{averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="star">&#9733;</span>) : null}</h3>
         </div>
     )
 }

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import StarRating from './StarRating'
-import { useNavigate } from "react-router-dom"
 
-const ReviewForm = ( {setShowReviewForm, post} ) => {
+const ReviewForm = ( {setShowReviewForm, setPost, post, setUser} ) => {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
   const [errorsList, setErrorsList] = useState([])
-  const navigate = useNavigate()
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,13 +20,15 @@ const ReviewForm = ( {setShowReviewForm, post} ) => {
       }),
     })
     .then(r => r.json())
-    .then(post => {
-      if (post.errors) {
-        const errorList = post.errors.map(e => <li>{e}</li>)
+    .then(review => {
+      if (review.errors) {
+        const errorList = review.errors.map(e => <li>{e}</li>)
         setErrorsList(errorList)
       } else {
         setShowReviewForm(false)
-        navigate('/profile/' + post.user_id)
+        fetch('/posts/' + post.id)
+        .then(r => r.json())
+        .then(post => setPost(post))
       }
     })
   }
@@ -42,7 +42,6 @@ const ReviewForm = ( {setShowReviewForm, post} ) => {
                 <br/>
                 <label>Rate This Post:</label><br/>
                 <StarRating setRating={setRating} rating={rating}/>
-                {/* <input type="range" maxValue={5} minValue={0} name="rating" value={rating} onChange={(e) => setRating(e.target.value)}/> */}
                 <br/>
                 <input className="submit" type="submit"/>
             </form>
