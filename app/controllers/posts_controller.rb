@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     before_action :authorize 
-    skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index, :show, :average_rating]
 
     def index
         render json: Post.all
@@ -37,6 +37,12 @@ class PostsController < ApplicationController
         else
             render json: {errors: ["Not authorized"]}, status: :unauthorized
         end
+    end
+
+    def average_rating
+        post = Post.find(params[:id])
+        average = post.reviews.average(:rating)
+        render json: average  
     end
 
     private

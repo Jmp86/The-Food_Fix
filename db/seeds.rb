@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Post.destroy_all
 User.destroy_all
+Review.destroy_all
 puts "destroyed"
 
 User.create(username: 'Jmp86', firstname: 'Justin', lastname: 'Pitts', password: 'food', bio: 'I love finding new restaraunts')
@@ -52,6 +53,11 @@ Post.create(title: 'Cacio e Pepe Macaroni and Cheese',
     average_rating: 5,
     user_id: User.all.sample.id )
 
+Review.create(review: "So Good", rating: 5, user_id: User.all.sample.id, post_id: Post.all.sample.id)
+Review.create(review: "Terrible", rating: 1, user_id: User.all.sample.id, post_id: Post.all.sample.id)
+Review.create(review: "It was ok", rating: 2, user_id: User.all.sample.id, post_id: Post.all.sample.id)
+Review.create(review: "Pretty Good", rating: 4, user_id: User.all.sample.id, post_id: Post.all.sample.id)
+Review.create(review: "Amazing", rating: 5, user_id: User.all.sample.id, post_id: Post.all.sample.id)
 
 
 puts "seeded"

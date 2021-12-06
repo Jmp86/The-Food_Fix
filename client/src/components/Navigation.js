@@ -1,6 +1,4 @@
 import React from "react";
-import SignUpButton from "./SignupButton";
-import LoginButton from "./LoginButton";
 import { NavLink } from 'react-router-dom'
 
 const link = {
@@ -22,10 +20,11 @@ const Navigation = (props) => {
                 to='/'
                 exact
                 style={link}
+                className="nav"
                 activeStyle={{
                     background: 'darkblue'
                 }}
-                ><button>Home</button></NavLink>
+                >Home</NavLink>
             <NavLink
                 to="/community"
                 exact
@@ -33,7 +32,7 @@ const Navigation = (props) => {
                 activeStyle={{
                     background: 'darkblue'
                 }}
-                ><button>Community Board</button></NavLink>
+                >Community Board</NavLink>
             <NavLink
                 to={'/profile/'+ props.user.id}
                 exact
@@ -41,22 +40,48 @@ const Navigation = (props) => {
                 activeStyle={{
                     background: 'darkblue'
                 }}
-                ><button>Profile</button></NavLink>
-                            <NavLink
+                >Profile</NavLink>
+            <NavLink
                 to={'/profile/'+ props.user.id}
                 exact
                 style={link}
+                onClick={props.logoutUser}
                 activeStyle={{
                     background: 'darkblue'
                 }}
-                ><button onClick={props.logoutUser} >Logout</button></NavLink>
+                >Logout</NavLink>
         </div>
     )
     } else {
         return (
             <div>
-                <LoginButton/> 
-                <SignUpButton/>
+                <NavLink 
+                    to='/'
+                    exact
+                    style={link}
+                    className="nav"
+                    activeStyle={{
+                        background: 'darkblue'
+                    }}
+                    >Home</NavLink>
+                <NavLink 
+                    to='/login'
+                    exact
+                    style={link}
+                    className="nav"
+                    activeStyle={{
+                        background: 'darkblue'
+                    }}
+                    >Login</NavLink>
+                <NavLink 
+                    to='/signup'
+                    exact
+                    style={link}
+                    className="nav"
+                    activeStyle={{
+                        background: 'darkblue'
+                    }}
+                    >Signup</NavLink>
             </div>
         )
     }

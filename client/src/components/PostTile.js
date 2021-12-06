@@ -1,8 +1,15 @@
 import { useNavigate } from "react-router"
+import { useState, useEffect } from 'react'
 
 const PostTile = ({ post }) => {
-
+    const [averageRating, setAverageRating] = useState(0)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        fetch(`/posts/${post.id}/average`)
+        .then((r) => r.json())
+        .then(average => setAverageRating(average)); 
+    }, [])
 
     const handleClick = () => {
         navigate("/posts/" + post.id);
@@ -16,7 +23,7 @@ const PostTile = ({ post }) => {
             <h3>{post.description}</h3>
             <p>{post.ingredients}</p>
             <p>{post.instructions}</p>
-            <h3>{post.average_rating}</h3>
+            <h3>{[...Array(parseInt(averageRating))].map(star => <span className="star">&#9733;</span>)}</h3>
         </div>
     )
 }
