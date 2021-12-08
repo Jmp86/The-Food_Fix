@@ -40,7 +40,7 @@ const App = (props) => {
       console.log("logged out")
       setLoggedIn(false)
       setUser({})
-      navigate("/")
+      navigate("/login")
     })
   }
 

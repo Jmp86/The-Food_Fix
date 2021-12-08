@@ -38,7 +38,7 @@ const ReviewForm = ( {setShowReviewForm, setPost, post, setUser} ) => {
             <form className="tile" onSubmit={handleSubmit}>
                 <h2>Add A Review</h2>
                 <label>Review:</label><br/>
-                <input type="textarea" name="review" value={review} onChange={(e) => setReview(e.target.value)}/>
+                <textarea type="text" name="review" value={review} onChange={(e) => setReview(e.target.value)}/>
                 <br/>
                 <label>Rate This Post:</label><br/>
                 <StarRating setRating={setRating} rating={rating}/>

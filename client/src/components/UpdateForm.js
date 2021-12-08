@@ -51,11 +51,11 @@ const UpdateForm = ( {setShowUpdateForm, setPost, post} ) => {
                 <input type="text" name="cuisine" value={category} onChange={(e) => setCategory(e.target.value)}/>
                 <br/>
                 <label>Description:</label><br/>
-                <input type="textarea" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/><br/>
+                <textarea type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/><br/>
                 <label>Ingredients:</label><br/>
-                <input type="textarea" name="ingredients" value={ingredients} onChange={(e) => setIngredients(e.target.value)}/><br/>
+                <textarea type="text" name="ingredients" value={ingredients} onChange={(e) => setIngredients(e.target.value)}/><br/>
                 <label>Instuctions:</label><br/>
-                <input type="textarea" name="instructions" value={instructions} onChange={(e) => setInstructions(e.target.value)}/><br/>
+                <textarea type="text" name="instructions" value={instructions} onChange={(e) => setInstructions(e.target.value)}/><br/>
                 <input className="submit" type="submit"/>
             </form>
             <ul>

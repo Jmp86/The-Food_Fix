@@ -39,10 +39,6 @@ button {
 .off {
   color: #ccc;
 }
-/* .navbar {
-  text-align: center;
- 
-} */
 
 .image {
     height: 500px;
@@ -61,17 +57,28 @@ button:hover {
 } 
 
 .navbar{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  max-width: 1500px;
+  background: black;
+}
+
+.navLink {
   font-family: 'Baumans'; 
- 
-  background: #000000;
-  
-  margin: auto;
-  height: 40px;
-  width: max-content;
-  color: whitesmoke;
-  font-size: 25px;
- 
+  text-align: center;
+  font-size: 20px;
+  width: 200px;
+  padding: 12px;
+  margin: 0 6px 6px;
+  text-decoration: none;
+  color: white;
+  background: black;
+}
+
+.active{
+  background: darkblue;
 }
 
 .postTile, .reviewTile, .user, .post{
@@ -102,13 +109,27 @@ button:hover {
   color:whitesmoke;
 }
 
-.submit, .delete, .createPost {
+.submit, .createPost {
   font-family: 'Baumans'; 
   position: relative;
   background-color: #000000;
   border: 1px; 
   border-radius: 5px; 
   height: 40px;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 30px;
+  justify-self: center;
+  margin: 1rem;
+}
+
+.delete {
+  font-family: 'Baumans'; 
+  position: relative;
+  background-color: #000000;
+  border: 1px; 
+  border-radius: 5px; 
+  height: 30px;
   width: max-content;
   color: whitesmoke;
   font-size: 20px;
@@ -190,12 +211,12 @@ h2 {
 }
 
 .community h1 {
-  background-color: whitesmoke;
-  color: black;
+  background-color: black;
+  color: whitesmoke;
   font-size: 85px;
   font-family: 'Baumans'; 
 }
 
-.star {
+.rating {
   color:gold;
 }

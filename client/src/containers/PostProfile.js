@@ -65,7 +65,7 @@ const PostProfile = () => {
                 <h3>Description: {post.description}</h3>
                 <p>{post.ingredients}</p>
                 <p>{post.instructions}</p>
-                <h3>Average Rating: {averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="star">&#9733;</span>) : null}</h3>
+                <h3>Average Rating: {averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="rating">&#9733;</span>) : null}</h3>
             </div>
             {showReviewForm ? <ReviewForm setShowReviewForm={setShowReviewForm} setPost={setPost} post={post}/> : <button className="reviewButton" onClick={(e) => setShowReviewForm(true)}>Add A Review</button>}
             {showUpdateForm ? <UpdateForm setShowUpdateForm={setShowUpdateForm} post={post} setPost={setPost}/> : <button className="updateButton" onClick={(e) => setShowUpdateForm(true)}>Edit Post</button>}

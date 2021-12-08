@@ -1,88 +1,55 @@
 import React from "react";
 import { NavLink } from 'react-router-dom'
 
-const link = {
-    width: '100px',
-    padding: '12px',
-    margin: '0 6px 6px',
-    textDecoration: 'none',
-    color: 'white',
-    background: "black"
-}
 
 const Navigation = (props) => {
 
 
     if (props.loggedIn) {
        return ( 
-        <div className="navbar">
+        <nav className="navbar">
             <NavLink 
-                to='/'
+                to="/"
+                className="navLink"
                 exact
-                style={link}
-                className="nav"
-                activeStyle={{
-                    background: 'darkblue'
-                }}
                 >Home</NavLink>
             <NavLink
                 to="/community"
                 exact
-                style={link}
-                activeStyle={{
-                    background: 'darkblue'
-                }}
+                className="navLink"
                 >Community Board</NavLink>
             <NavLink
-                to={'/profile/'+ props.user.id}
+                to={"/profile/"+ props.user.id}
                 exact
-                style={link}
-                activeStyle={{
-                    background: 'darkblue'
-                }}
+                className="navLink"
                 >Profile</NavLink>
             <NavLink
-                to={'/profile/'+ props.user.id}
+                to='/login'
                 exact
-                style={link}
+                className="navLink"
                 onClick={props.logoutUser}
-                activeStyle={{
-                    background: 'darkblue'
-                }}
                 >Logout</NavLink>
-        </div>
+        </nav>
     )
     } else {
         return (
-            <div className="navbar">
+            <nav className="navbar">
                 <NavLink 
                     to='/'
                     exact
-                    style={link}
-                    className="nav"
-                    activeStyle={{
-                        background: 'darkblue'
-                    }}
+                    className="navLink"
                     >Home</NavLink>
                 <NavLink 
                     to='/login'
                     exact
-                    style={link}
-                    className="nav"
-                    activeStyle={{
-                        background: 'darkblue'
-                    }}
+                    className="navLink"
                     >Login</NavLink>
                 <NavLink 
                     to='/signup'
                     exact
-                    style={link}
-                    className="nav"
-                    activeStyle={{
-                        background: 'darkblue'
-                    }}
+                    className="navLink"
                     >Signup</NavLink>
-            </div>
+            </nav>
         )
     }
 }
