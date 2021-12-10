@@ -5,7 +5,7 @@
 The Food Fix is a social media platform that allows users to come together as a community to share their favorite restaraunts, bars, coffee shops, recipes and more.  You can signup as a new user, visit the community board to see all posts that have been added by other users. As a user you can create new posts, as well as update and delete posts that belong to you. By clicking on a post, users can submit reviews for that post.  A user can delete reviews that they have submitted but can't delete other user reviews. 
 
 ## Tables and Relationships
-<img src='Media/Screen Shot 2021-12-09 at 9.11.32 PM.png'/>
+[embed]'https://github.com/Jmp86/The-Food_Fix/blob/b3bd31078c1fc98ad4264b4d6626fcb9881343eb/Media/Schema%20-%20The%20Food%20Fix.pdf'[/embed]
 ## Setup
 
 ```
