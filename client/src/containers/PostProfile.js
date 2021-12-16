@@ -15,7 +15,9 @@ const PostProfile = () => {
     useEffect(() => {
         fetch("/posts/" + id)
         .then((r) => r.json())
-        .then(post => setPost(post)); 
+        .then(post => {
+            setPost(post)
+        }); 
 
         fetch(`/posts/${id}/average`)
         .then((r) => r.json())
@@ -41,6 +43,8 @@ const PostProfile = () => {
           navigate('/')
     }
 
+
+
     const deleteReview = (id) => {
         fetch("/reviews/" + id, {
             method: "DELETE",
@@ -48,16 +52,22 @@ const PostProfile = () => {
               "Content-Type": "application/json",
             },
           })
-          .then(r => r.json())
-          .then(
-              fetch('/posts/' + post.id)
-                .then(r => r.json())
-                .then(post => setPost(post))
-          )}
-    
+        .then(r => r.json())
+        .then(review => {
+            if (review.errors)
+            review.errors.map(e => {alert(e)});
+        })
+        const newData = {
+            ...post,
+            reviews: post.reviews.filter(item => item.id !== id)
+        };
+        setPost(newData);
+    }
+ 
+  
 
     return (
-        <div className="postProfile" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1547147278-b6acb274b6b5?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NHx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80)`}}>
+        <div className="postProfile"  style={{ backgroundImage: `url(https://images.unsplash.com/photo-1547147278-b6acb274b6b5?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NHx8fGVufDB8fHx8&ixlib=rb-1.2.1&w=1000&q=80)`}}>
             <div className="post">
                 <h1>{post.title}</h1>
                 <img className="image" src={post.image} alt={post.name}/>
@@ -67,10 +77,10 @@ const PostProfile = () => {
                 <p>{post.instructions}</p>
                 <h3>Average Rating: {averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="rating">&#9733;</span>) : null}</h3>
             </div>
-            {showReviewForm ? <ReviewForm setShowReviewForm={setShowReviewForm} setPost={setPost} post={post}/> : <button className="reviewButton" onClick={(e) => setShowReviewForm(true)}>Add A Review</button>}
-            {showUpdateForm ? <UpdateForm setShowUpdateForm={setShowUpdateForm} post={post} setPost={setPost}/> : <button className="updateButton" onClick={(e) => setShowUpdateForm(true)}>Edit Post</button>}
+            {showReviewForm ? <ReviewForm  key={post.id} setShowReviewForm={setShowReviewForm} setPost={setPost} post={post}/> : <button className="reviewButton" onClick={(e) => setShowReviewForm(true)}>Add A Review</button>}
+            {showUpdateForm ? <UpdateForm key={post.id} setShowUpdateForm={setShowUpdateForm} post={post} setPost={setPost}/> : <button className="updateButton" onClick={(e) => setShowUpdateForm(true)}>Edit Post</button>}
             <button onClick={handleDelete} className="delete">Delete Post</button><br/>
-            {post.reviews ? post.reviews.map(review => <ReviewTile review={review} deleteReview={deleteReview}/>) : null}
+            {post.reviews ? post.reviews.map(review => <ReviewTile key={review.id} review={review} deleteReview={deleteReview}/>) : null}
         </div>
     )
 }

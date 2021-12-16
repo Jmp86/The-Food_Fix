@@ -45,7 +45,7 @@ const App = (props) => {
   }
 
   return (
-    <div>
+    <>
       <Navigation user={user} loggedIn={loggedIn} logoutUser={logoutUser}/>
       <Routes>
         <Route index path='/' element={<Home/>}/>
@@ -55,7 +55,7 @@ const App = (props) => {
         <Route index path='/login' element={<LoginForm loginUser={loginUser} user={user}/>}/>
         <Route index path='/signup' element={<SignupForm loginUser={loginUser} user={user}/>}/>
       </Routes>
-    </div>
+    </>
   );
 }
 
