@@ -22,7 +22,7 @@ const UserProfile = ({user}) => {
             <br/>
             <h2>My Posts</h2>
             </div>
-            {posts ? posts.map(post => <PostTile post={post}/>) : null}
+            {posts ? posts.map(post => <PostTile key={post.id} post={post}/>) : null}
         </div>
     )
 }

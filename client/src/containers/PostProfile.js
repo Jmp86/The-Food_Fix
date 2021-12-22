@@ -23,7 +23,7 @@ const PostProfile = () => {
         .then((r) => r.json())
         .then(average => setAverageRating(average)); 
 
-        }, []);
+        }, [id]);
 
     const handleDelete = () => {
         fetch("/posts/" + id, {
@@ -35,7 +35,7 @@ const PostProfile = () => {
           .then(r => r.json())
           .then(post => {
             if (post.errors) {
-              post.errors.map(e => {alert(e)})
+              post.errors.map(e => (alert(e)))
             } else {
                 setPost(post)
             }
@@ -55,7 +55,7 @@ const PostProfile = () => {
         .then(r => r.json())
         .then(review => {
             if (review.errors)
-            review.errors.map(e => {alert(e)});
+            review.errors.map(e => (alert(e)));
         })
         const newData = {
             ...post,
@@ -75,7 +75,7 @@ const PostProfile = () => {
                 <h3>Description: {post.description}</h3>
                 <p>{post.ingredients}</p>
                 <p>{post.instructions}</p>
-                <h3>Average Rating: {averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="rating">&#9733;</span>) : null}</h3>
+                <h3>Average Rating: {averageRating ? [...Array(parseInt(averageRating))].map(star => <span key={Math.random()} className="rating">&#9733;</span>) : null}</h3>
             </div>
             {showReviewForm ? <ReviewForm  key={post.id} setShowReviewForm={setShowReviewForm} setPost={setPost} post={post}/> : <button className="reviewButton" onClick={(e) => setShowReviewForm(true)}>Add A Review</button>}
             {showUpdateForm ? <UpdateForm key={post.id} setShowUpdateForm={setShowUpdateForm} post={post} setPost={setPost}/> : <button className="updateButton" onClick={(e) => setShowUpdateForm(true)}>Edit Post</button>}

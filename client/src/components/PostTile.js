@@ -9,7 +9,7 @@ const PostTile = ({ post }) => {
         fetch(`/posts/${post.id}/average`)
         .then((r) => r.json())
         .then(average => setAverageRating(average)); 
-    }, [])
+    }, [post.id])
 
     const handleClick = () => {
         navigate("/posts/" + post.id);
@@ -21,7 +21,7 @@ const PostTile = ({ post }) => {
             <img className="tileImage" src={post.image} alt={post.name}/>
             <h3>{post.category}</h3>
             <h3>{post.description}</h3>
-            <h2>{averageRating ? [...Array(parseInt(averageRating))].map(star => <span className="rating">&#9733;</span>) : null}</h2>
+            <h2>{averageRating ? [...Array(parseInt(averageRating))].map(star => <span key={Math.random()} className="rating">&#9733;</span>) : null}</h2>
         </div>
     )
 }
